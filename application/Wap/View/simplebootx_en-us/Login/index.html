@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷官方主页</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/login.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/xcConfirm.css"/>
+	<script src="__PUBLIC__/Wap/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Wap/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<div class="user_login">
+	<div class="head">
+		<h1>新加坡酷-登录</h1>
+	</div>
+	
+	<div class="login">
+		<div class="user_logo"><img src="__PUBLIC__/Wap/images/user_logo.png" /></div>
+		<form >
+			<input type="text" id="user_email" placeholder="请输入邮箱号"  class="phone" />
+			<input type="password" id="user_pass" placeholder="请输入密码"  class="qspwd" />
+			<input type="button" onclick="button()" value="登 录" class="submit" />
+		</form>
+	</div>
+
+	<div class="user_othe">
+		<li><a href="{:U('Wap/Register/index')}">注册账号</a></li>
+		<li><a href="{:U('Wap/Login/lose_pass')}">忘记密码</a></li>
+	</div>
+
+</div>
+	<script>
+		function button(){
+			var email = $('#user_email').val();
+			var pass = $('#user_pass').val();
+			var action = "{:U('Wap/Login/login')}";
+
+			$.post(action,{user_email:email,user_pass:pass},function(data){
+				if( data== "成功"){
+					window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);window.location.href="{:U('Wap/Index/index')}";
+				}else{
+					window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);
+				}
+			})
+
+		}
+
+	</script>
+</body>
+</html>

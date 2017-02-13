@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/othe.css" />
+</head>
+<body>
+	<div class="head">
+		<div class="back"><a href="{:U('Wap/News/index')}"><img src="__PUBLIC__/Wap/images/back.png" /></a></div>
+		<h1>新加坡酷最新信息</h1>
+	</div>
+	
+	<div class="main">
+		<div class="news_show">
+	    {$list.content}
+		</div>
+	</div>
+	
+	<div class="news_show_foot">
+		<div class="next"><a href="{:U('Wap/News/detail',array('nid'=>$front['nid']))}"><img src="__PUBLIC__/Wap/images/next.png" />上一篇文章</a></div>
+		<div class="prev"><a href="{:U('Wap/News/detail',array('nid'=>$after['nid']))}"><img src="__PUBLIC__/Wap/images/prev.png" />下一篇文章</a></div>
+	</div>
+</body>
+</html>

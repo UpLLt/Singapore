@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷官方主页</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/login.css" />
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/xcConfirm.css"/>
+    <script src="__PUBLIC__/Wap/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/Wap/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/Wap/js/jquery.js"></script>
+
+</head>
+<body>
+
+<div class="user_login">
+    <div class="head">
+        <div class="back"><a href="{:U('Wap/Login/index')}"><img src="__PUBLIC__/Wap/images/back.png"/></a></div>
+		<h1>新加坡酷-登录</h1>
+	</div>
+	
+	<div class="login reg">
+		<div class="user_logo"><h2>忘记密码</h2></div>
+		<form>
+			<input type="text" name="user_email" id="user_email" placeholder="请输入邮箱号"   />
+			<input type="text" id="code" placeholder="验证码"  class="code" maxlength="6" />
+			<h4 class="code_cd"><a  href="javascript:;"  id="refresh">获取验证码</a><b>&nbsp;</b></h4>
+			<input type="password" id="pass" placeholder="请设定密码"   />
+			<input type="button" onclick="button()" value="确 定" class="submit" />
+		</form>
+	</div>
+
+</div>
+
+</body>
+</html>
+ <script type="text/javascript">
+  
+
+    var wait=10;
+    function time(o) {
+
+        var email = $('#user_email').val();
+        if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+            return false;
+
+        }
+            if (wait == 0) {
+                  $(".code_cd a").css("display","block");
+                  $(".code_cd b").css("display","none");
+                wait = 10;
+            } else {
+               $(".code_cd a").css("display","none");
+                $(".code_cd b").css("display","block");
+               $(".code_cd b").html("重新发送 (" + wait + ")");
+                wait--;
+                setTimeout(function() {
+                    time(o)
+                },
+                1000);
+            }
+        }
+    document.getElementById("refresh").onclick=function(){time(this);}
+
+</script>
+<script>
+
+    $('#refresh').on('click', function(){
+        var email = $('#user_email').val();
+        if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+            window.wxc.xcConfirm("邮箱格式不正确",window.wxc.xcConfirm.typeEnum.info);
+            return false;
+        }
+
+        var action = "{:U('Wap/Login/send')}";
+        $.post(action,{user_email:email},function(data){
+           if( data== 1 ){
+               window.wxc.xcConfirm("发送失败，邮箱不存在",window.wxc.xcConfirm.typeEnum.info);
+           }
+            if( data== 2 ){
+                window.wxc.xcConfirm("发送失败",window.wxc.xcConfirm.typeEnum.info);
+            }
+        })
+
+  })
+
+    function button(){
+        var email = $('#user_email').val();
+        var z_code  = $('#code').val();
+        var pass = $('#pass').val();
+        if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+
+            window.wxc.xcConfirm("邮箱格式不对",window.wxc.xcConfirm.typeEnum.info);
+            return false;
+        }
+
+        if( z_code.length !== 6 ){
+            window.wxc.xcConfirm("验证码位数不正确",window.wxc.xcConfirm.typeEnum.info);
+            return false;
+        }
+
+        if( pass.length < 6 || pass.length>24 ){
+
+            window.wxc.xcConfirm("密码格式不正确,长度不能低于6或者大于24",window.wxc.xcConfirm.typeEnum.info);
+            return false;
+        }
+
+        var action = "{:U('Wap/Login/edit_pass')}";
+        $.post(action,{user_email:email,code:z_code,user_pass:pass}, function (data) {
+            if(  data == 0 ){
+
+                window.wxc.xcConfirm("修改成功",window.wxc.xcConfirm.typeEnum.info);widows.location.href="{:U('Wap/Index/index')}";
+            }
+            if(  data == 1 ){
+
+                window.wxc.xcConfirm("验证码不正确",window.wxc.xcConfirm.typeEnum.info);
+            }
+            if(  data == 2 ){
+
+                window.wxc.xcConfirm("验证码过期",window.wxc.xcConfirm.typeEnum.info);
+            }
+            if(  data == 3 ){
+
+                window.wxc.xcConfirm("修改失败",window.wxc.xcConfirm.typeEnum.info);
+            }
+
+        })
+
+    }
+
+
+
+</script>

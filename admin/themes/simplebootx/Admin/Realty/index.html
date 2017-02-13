@@ -1,0 +1,95 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="javascript:;">地产资源</a></li>
+        <li><a href="{:U('Realty/add_list')}" target="_self">添加地产</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('Realty/index')}">
+        时间：
+        <input type="text" name="start_time" class="js-date" value="{$formget.start_time|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="end_time" value="{$formget.end_time}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        关键字：
+        <input type="text" name="keyword" style="width: 200px;" value="{$formget.keyword}" placeholder="请输入关键字...">
+        <input type="submit" class="btn btn-primary" value="搜索" />
+    </form>
+    <form class="js-ajax-form" action="" method="post">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>地址</th>
+                <th>缩略图</th>
+                <th>开盘时间</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <foreach name="lists" item="vo">
+                <tr>
+                    <td>{$vo.title}</td>
+                    <td>{$vo.address}</td>
+                    <td><a href="{:sp_get_asset_upload_path($vo['thumb'])}" target='_blank'><img height="37px" width="37px" src="{$vo.thumb}"></a></td>
+                    <td>{$vo.open_time}</td>
+                    <td>
+                        <a href="{:U('Realty/detail',array('id'=>$vo['id']))}">详情</a> |
+                        <a href="{:U('Realty/edit_list',array('id'=>$vo['id']))}">修改</a> |
+                        <a href="{:U('Realty/banner_list',array('id'=>$vo['id']))}">Banner编辑</a> |
+                        <a href="{:U('Realty/pic_list',array('id'=>$vo['id']))}">图片编辑</a> |
+                        <a href="{:U('Realty/del',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a>
+
+                    </td>
+                </tr>
+            </foreach>
+        </table>
+
+        <div class="pagination">{$page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+    function refersh_window() {
+        var refersh_time = getCookie('refersh_time');
+        if (refersh_time == 1) {
+            window.location = "{:U('News/index',$formget)}";
+        }
+    }
+    setInterval(function() {
+        refersh_window();
+    }, 2000);
+    $(function() {
+        setCookie("refersh_time", 0);
+        Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+            //批量移动
+            $('.js-articles-move').click(function(e) {
+                var str = 0;
+                var id = tag = '';
+                $("input[name='ids[]']").each(function() {
+                    if ($(this).attr('checked')) {
+                        str = 1;
+                        id += tag + $(this).val();
+                        tag = ',';
+                    }
+                });
+                if (str == 0) {
+                    art.dialog.through({
+                        id : 'error',
+                        icon : 'error',
+                        content : '您没有勾选信息，无法进行操作！',
+                        cancelVal : '关闭',
+                        cancel : true
+                    });
+                    return false;
+                }
+                var $this = $(this);
+                art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+                    title : "批量移动",
+                    width : "80%"
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷官方主页</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<script type="text/javascript" src="__PUBLIC__/Wap/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Wap/js/banner.js"></script>
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/banner.css" />
+</head>
+<body>
+	<!-- 	<div class="head">
+		<div class="back"><a href="index.html"><img src="__PUBLIC__/Wap/images/back.png" /></a></div>
+		<h1>新加坡酷官方主页</h1>
+	</div> -->
+
+	
+	<div class="slide-main" id="touchMain">
+		<div class="slide-box" id="slideContent">
+
+			<div class="slide" style="display:block;">
+			    <a  href="{$banner.0.url}">  <img src="{$banner.0.picture}" /></a>
+			</div>
+			<div class="slide" >
+				<a  href="{$banner.1.url}">	<img src="{$banner.1.picture}" /></a>
+			</div>
+			<div class="slide" >
+				<a  href="{$banner.2.url}">	<img src="{$banner.2.picture}" /></a>
+			</div>
+			<div class="slide" >
+				<a  href="{$banner.3.url}">	<img src="{$banner.3.picture}" /></a>
+			</div>
+			<div class="slide" >
+				<a  href="{$banner.4.url}">	<img src="{$banner.4.picture}" /></a>
+			</div>
+
+		</div>
+	
+		<div class="item">
+			<a class="cur" href="javascript:;"></a><a href="javascript:;"  ></a><a href="javascript:;" ></a><a href="javascript:;"  ></a><a href="javascript:;" ></a>
+		</div>
+	</div>
+
+	<div class="ban_menu">
+		<li><a href="{:U('Wap/Video/index')}"><img src="__PUBLIC__/Wap/images/news_logo.png" /><p>视频图片</p></a></li>
+		<li><a href="{:U('Wap/Tour/index')}"><img src="__PUBLIC__/Wap/images/tourism_logo.png" /><p>旅游</p></a></li>
+		<li><a href="{:U('Wap/Invest/index')}"><img src="__PUBLIC__/Wap/images/invest_logo.png" /><p>投资</p></a></li>
+		<li><a href="{:U('Wap/Education/index')}"><img src="__PUBLIC__/Wap/images/teach_logo.png" /><p>教育</p></a></li>
+		<li><a href="{:U('Wap/Medical/index')}"><img src="__PUBLIC__/Wap/images/care_logo.png" /><p>医疗</p></a></li>
+		<li><a href="{:U('Wap/Connect/index')}"><img src="__PUBLIC__/Wap/images/contact_logo.png" /><p>联系我们</p></a></li>
+	</div>
+	
+
+	<div class="contact_show">
+		<div class="bbq">
+			<div class="newsq"><img src="__PUBLIC__/Wap/images/contact_img.png" />关于我们</div>
+		</div>
+		<div class="cont_show_us">
+			<a href="{:U('Wap/Index/about_us')}"><img src="{$about_us.thumb}" /></a>
+			<p>
+				{$about_us.describe}
+			</p>
+		</div>
+
+
+	</div>
+	<div class="news_li_page">
+		<div class="bbq">
+			<div class="newsq"><img src="__PUBLIC__/Wap/images/news_img.png" />精选资讯</div>
+			<div class="more"><a href="{:U('Wap/News/index')}">更多<img src="__PUBLIC__/Wap/images/more.png" /></a></div>
+		</div>
+
+		<foreach name="news" item="vo">
+			<li><a href="{:U('Wap/News/detail',array('nid'=>$vo['nid']))}">
+				<img  src="{$vo.thumb}" />
+				<h1>{$vo.title}</h1>
+				<p>{$vo.describe}</p>
+				<h4>{$vo.create_time|date='Y-m-d',###}</h4>
+			</a></li>
+		</foreach>
+
+
+	</div>
+
+	<div class="footer">
+		<p>Copyright© 2012-2016 新加坡酷 版权所有.</p>
+	</div>
+
+</body>
+</html>

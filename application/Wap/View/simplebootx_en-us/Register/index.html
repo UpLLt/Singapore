@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷官方主页</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/login.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/xcConfirm.css"/>
+	<script src="__PUBLIC__/Wap/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Wap/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+<div class="user_login">
+	<div class="head">
+		<div class="back"><a href="{:U('Wap/Login/index')}"><img src="__PUBLIC__/Wap/images/back.png"/></a></div>
+		<h1>新加坡酷-注册</h1>
+	</div>
+	
+	<div class="user_reg">
+		<div class="user_logo"><img src="__PUBLIC__/Wap/images/user_logo.png" /></div>
+		<form  >
+			<li><b>*</b><input id="user_email"  type="text" placeholder="请输入邮箱"   /></li>
+			<li><b>*</b><input id="user_pass"  type="password" placeholder="请设定密码"   /></li>
+			<li><b>*</b><input id="re_pass"  type="password" placeholder="确认密码"   /></li>
+			<li><b></b><input id="user_realname" type="text" placeholder="请输入真实姓名"   /></li>
+			<li><b></b><input id="user_phone" type="text" placeholder="请输入手机号"   /></li>
+			<li><b></b><input id="user_nickname" type="text" placeholder="请输入昵称"   /></li>
+			<li><b></b><input id="user_area" type="text" placeholder="请输入地区"   /></li>
+		
+			<input type="button" onclick="button()" value="注 册" class="submitreg" />
+		</form>
+	</div>
+
+</div>
+<script>
+	function button(){
+
+
+		var email = $('#user_email').val();
+		var realname = $('#user_realname').val();
+		var phone = $('#user_phone').val();
+		var nickname = $('#user_nickname').val();
+		var area = $('#user_area').val();
+		var pass = $('#user_pass').val();
+		var re_pass = $('#re_pass').val();
+		
+		
+		if( pass.length < 6 || pass.length>24 ){
+
+            window.wxc.xcConfirm("密码格式不正确,长度不能低于6或者大于24",window.wxc.xcConfirm.typeEnum.info);
+            return false;
+        }
+
+		
+		if( re_pass != pass){
+			window.wxc.xcConfirm("两次密码不一致，请重新输入",window.wxc.xcConfirm.typeEnum.info);
+			return false;
+		}
+
+		var action = "{:U('Wap/Register/register')}";
+
+		$.post(action,{user_email:email,user_realname:realname,user_phone:phone,user_nickname:nickname,user_area:area,user_pass:pass},function(data){
+
+			if( data== "成功"){
+				window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);window.location.href="{:U('Wap/Login/index')}";
+			}else{
+				window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);
+			}
+
+		})
+
+
+
+
+	}
+
+
+
+
+</script>
+
+
+</body>
+</html>

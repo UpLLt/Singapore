@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/othe.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/xcConfirm.css"/>
+	<script src="__PUBLIC__/Wap/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Wap/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body style="background: #fff;">
+	<div class="head">
+		<div class="back"><a href="{:U('Wap/Index/index')}"><img src="__PUBLIC__/Wap/images/back.png" /></a></div>
+		<h1>联系我们</h1>
+	</div>
+	
+	<div class="main bgd">
+		<div class="contact">
+			<h1>请输入您的个人资料以方便我们给予协助</h1>
+			<form >
+				<input type="text" placeholder="请输入姓名" class="xing" id="real_name" />
+				<input type="text" placeholder="请输入手机号" maxlength="11"  class="phone" id="tel_phone" />
+				<textarea placeholder="请输入您的需求" class="xuqu" id="content" ></textarea>
+				<input type="text" placeholder="验证码"  maxlength="4" id="code"  class="code" />{:sp_verifycode_img('length=4&font_size=20&width=145&height=42&use_noise=1&use_curve=0','style="cursor: pointer;" title="点击获取"')}
+				
+				<input type="button" onclick="button()" value="提 交" class="submit" />
+			</form>
+		</div>
+	</div>
+
+<script>
+	function button(){
+		var action      = "{:U('Wap/Connect/connect')}";
+		var name        = $('#real_name').val();
+		var phone       = $('#tel_phone').val();
+		var z_content   = $('#content').val();
+		var z_code      = $('#code').val();
+
+		$.post(action,{real_name:name,tel_phone:phone,content:z_content,code:z_code},function(data){
+			if(data == "成功"){
+				window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);window.location.href="{:U('Wap/Connect/index')}";
+			}else{
+				window.wxc.xcConfirm(data,window.wxc.xcConfirm.typeEnum.info);
+			}
+
+
+		})
+
+	}
+
+
+</script>
+
+</body>
+</html>

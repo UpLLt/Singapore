@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新加坡酷</title> 
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />    
+<meta name="data-spm" content="a215s" />
+<meta content="telephone=no,email=no" name="format-detection" />    
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/index.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/css/othe.css" />
+
+<script type="text/javascript" src="__PUBLIC__/Wap/js/zepto.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Wap/js/zepto.extend.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Wap/js/zepto.ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Wap/js/widget/slider.js"></script>
+</head>
+<body>
+	<div class="head">
+		<div class="back"><a href="javascript:history.go(-1)"><img src="__PUBLIC__/Wap/images/back.png" /></a></div>
+		<h1>{$list.title}</h1>
+	</div>
+	
+
+	<div class="banner">
+		<img src="{$banner.picture}" />
+	</div>
+		
+	
+
+	<div class="invest_show">
+		<li><b>价格</b> 价格约{$list.price}/平米</li>
+		<li><b>位置</b> {$list.place}</li>
+		<li><b>户型面积</b>  <span>{$list.size}</span></li>
+		<li><b>销售进度</b> {$list.saleing}</li>
+	</div>
+
+	<div class="layout">
+		<div class="outline"><h1>在售户型（{$count}）</h1></div>
+			
+			<div id="slide" class="line_lay"></div>
+
+		
+	</div>
+
+	<div class="layout">
+		<div class="outline"><h1>详情信息</h1></div>
+		<div class="line_lay_out">
+			<li><b>开盘时间：</b> <p>{$list.open_time}</p></li>
+			<li><b>楼盘特殊：</b> <p>{$list.feature}</li>
+			<li><b>建筑类别：</b> <p>{$list.building_type}</p></li>
+			<li><b>物业费：</b> <p>{$list.property_fee}</p></li>
+			<li><b>开发商:</b> <p>{$list.developers}</p></li>
+		</div>
+	</div>
+
+	<div class="layout">
+		<div class="outline"><h1>位置周边</h1></div>
+		<div class="line_lay_phery">
+			<div class="map">
+				<script type="text/javascript" src="__PUBLIC__/Wap/images/api.txt"></script><script type="text/javascript" src="__PUBLIC__/Wap/images/getscript"></script><link rel="stylesheet" type="text/css" href="__PUBLIC__/Wap/images/bmap.css"><script type="text/javascript" src="__PUBLIC__/Wap/images/getscript.txt"></script><link rel="stylesheet" type="text/css" href="images/bmap_002.css">
+				<div style="width: 100%; height: 340px; overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;" id="container"><div style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: grab;"><div style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; width: 100%; height: 340px;" class="BMap_mask"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"><span title="" class="BMap_Marker BMap_noprint" unselectable="on" "=" style="position: absolute; padding: 0px; margin: 0px; border: 0px none; -moz-user-select: none; cursor: pointer; background: url(&quot;http://api.map.baidu.com/images/blank.gif&quot;) repeat scroll 0% 0% transparent; width: 19px; height: 25px; left: 338px; top: 145px; z-index: -6142646;"></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px none; width: 0px; height: 0px; -moz-user-select: none; left: 338px; top: 145px; z-index: -6142646;"><div style="position: absolute; margin: 0px; padding: 0px; width: 19px; height: 25px; overflow: hidden;"><img src="images/marker_red_sprite.png" style="border:none;left:0px; top:0px; position:absolute;"></div></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"><span unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px none; width: 20px; height: 11px; -moz-user-select: none; left: 342px; top: 159px;"><div style="position: absolute; margin: 0px; padding: 0px; width: 20px; height: 11px; overflow: hidden;"><img src="images/marker_red_sprite.png" style="border:none;left:-19px; top:-13px; position:absolute;"></div></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 1;"><div style="position: absolute; z-index: -100; left: 347px; top: 170px;"><img src="images/a.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: -186px; top: -28px; opacity: 1;"><img src="images/a_008.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: -442px; top: -284px; opacity: 1;"><img src="images/a_003.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: -442px; top: -28px; opacity: 1;"><img src="images/a_007.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: 70px; top: -28px; opacity: 1;"><img src="images/a_004.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: -186px; top: -284px; opacity: 1;"><img src="images/a_002.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: 326px; top: -28px; opacity: 1;"><img src="images/a_006.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: 70px; top: -284px; opacity: 1;"><img src="images/a_005.png" style="-moz-user-select: none; position: absolute; border: medium none; width: 256px; height: 256px; left: 326px; top: -284px; opacity: 1;"></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 2;"></div></div><div class=" anchorBL" style="height: 32px; position: absolute; z-index: 10; -moz-user-select: none; bottom: 0px; right: auto; top: auto; left: 1px;"><a style="outline: medium none;" href="http://map.baidu.com/?sr=1" target="_blank" title="到百度地图查看此区域"><img style="border:none;width:77px;height:32px" src="images/copyright_logo.png"></a></div><div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:-moz-grab"><div class="BMap_zoomer" style="top:0;left:0;"></div><div class="BMap_zoomer" style="top:0;right:0;"></div><div class="BMap_zoomer" style="bottom:0;left:0;"></div><div class="BMap_zoomer" style="bottom:0;right:0;"></div></div><div style="width: 62px; height: 204px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100; -moz-user-select: none;" class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL" unselectable="on"><div class="BMap_stdMpPan"><div class="BMap_button BMap_panN" title="向上平移"></div><div class="BMap_button BMap_panW" title="向左平移"></div><div class="BMap_button BMap_panE" title="向右平移"></div><div class="BMap_button BMap_panS" title="向下平移"></div><div class="BMap_stdMpPanBg BMap_smcbg"></div></div><div style="height: 159px; width: 62px;" class="BMap_stdMpZoom"><div class="BMap_button BMap_stdMpZoomIn" title="放大一级"><div class="BMap_smcbg"></div></div><div style="top: 138px;" class="BMap_button BMap_stdMpZoomOut" title="缩小一级"><div class="BMap_smcbg"></div></div><div style="height: 120px;" class="BMap_stdMpSlider"><div style="height: 120px;" class="BMap_stdMpSliderBgTop"><div class="BMap_smcbg"></div></div><div style="top: 25px; height: 99px;" class="BMap_stdMpSliderBgBot"></div><div class="BMap_stdMpSliderMask" title="放置到此级别"></div><div style="cursor: grab; top: 25px;" class="BMap_stdMpSliderBar" title="拖动缩放"><div class="BMap_smcbg"></div></div></div><div class="BMap_zlHolder"><div class="BMap_zlSt"><div class="BMap_smcbg"></div></div><div class="BMap_zlCity"><div class="BMap_smcbg"></div></div><div class="BMap_zlProv"><div class="BMap_smcbg"></div></div><div class="BMap_zlCountry"><div class="BMap_smcbg"></div></div></div></div></div><div style="cursor: default; white-space: nowrap; -moz-user-select: none; color: black; background: none repeat scroll 0% 0% transparent; font: 11px/15px arial,simsun,sans-serif; bottom: 0px; right: auto; top: auto; left: 155px; position: absolute; z-index: 10;" class=" BMap_cpyCtrl BMap_noprint anchorBL" unselectable="on"><span style="display: inline;" _cid="1"></span></div><div style="cursor: default; white-space: nowrap; -moz-user-select: none; color: black; background: none repeat scroll 0% 0% transparent; font: 11px/15px arial,simsun,sans-serif; bottom: 2px; right: auto; top: auto; left: 81px; position: absolute; z-index: 10;" class=" BMap_cpyCtrl anchorBL" unselectable="on"><span style="display: inline;" _cid="1"><span style="font-size:11px">&#169; 2015 Baidu&nbsp;- Data &#169; <a target="_blank" href="http://www.navinfo.com/">NavInfo</a> &amp; <a target="_blank" href="http://www.cennavi.com.cn/">CenNavi</a> &amp; <a target="_blank" href="http://www.365ditu.com/">道道通</a></span></span></div></div>
+				<script type="text/javascript">
+				  var map = new BMap.Map("container");                // 创建Map实例
+				  var point = new BMap.Point({$list.longitude},{$list.latitude});  // 创建点坐标
+				  map.centerAndZoom(point,15);        // 103.920906,30.642919              // 设置中心点坐标,和地图级别。更重要的是初始化地图
+				  setTimeout(function(){
+				    map.panTo(new BMap.Point({$list.longitude},{$list.latitude}));
+				  }, 1000);
+				  map.enableScrollWheelZoom();
+				  map.addControl(new BMap.NavigationControl({type: BMAP_NAVIGATION_CONTROL_LARGE}));
+				  var marker = new BMap.Marker(new BMap.Point({$list.longitude},{$list.latitude}));  // 创建标注
+				  map.addOverlay(marker);              // 将标注添加到地图中
+				  // var infoWindow = new BMap.InfoWindow("<p> 成都保利大厦</p>");
+				marker.addEventListener("click", function(){this.openInfoWindow(infoWindow);});//创建信息窗口
+				var myCopyright = new BMap.CopyrightControl({offset: new BMap.Size(155, 0)})
+				map.addControl(myCopyright);      //为地图添加版权控件
+				myCopyright.addCopyright({id : 1, content : ''});
+				</script> 
+			</div>
+			<div class="lay_phery">
+				<li><b>周边配置：</b><p>{$list.side_config}。</p></li>
+			</div>
+		</div>
+	</div>
+
+	<div style="display: none" id="pic" >{$pic}</div>
+
+	<div class="footer">
+		<p>Copyright© 2012-2016 新加坡酷 版权所有.</p>
+	</div>
+</body>
+</html>
+
+<script>
+
+    //创建slider组件
+    var data   = $('#pic').html();
+    
+    var con = new Array();
+    	
+
+        for (i=0; i<eval(data).length; i++) {
+        	var _arr = [];
+    		_arr['href'] = eval(data)[i]["href"];
+    		_arr['pic']  = eval(data)[i]["pic"];
+    		_arr['title']= "";
+    		con.push(_arr); 		
+    	}
+    var slider = $.ui.slider('#slide', {
+        autoPlay:false,
+        showArr:false,
+        viewNum:2,
+        content:con,
+    });
+
+        
+
+</script>
+<!-- 图片高度自适应 -->
+<script type="text/javascript" src="__PUBLIC__/Wap/js/jquery.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+	img_height = $('.ui-slider-item').children().children('img').height();
+	$('#slide').css('height',img_height + 'px');
+})
+</script>

@@ -1,0 +1,138 @@
+﻿
+body{ 
+	font-family:'Microsoft Yahei'; 
+	margin:0px; 
+	padding:0px;
+}
+h1,h4,p,i,input{ 
+	margin:0px;
+	padding:0px;
+	
+}
+li{ 
+	list-style:none;
+}
+.bg{ 
+	width:100%; 
+	height:100%; 
+	position: absolute;
+	top: 0px;
+	background:url(../images/bg1.jpg);
+	background-size: 100% 100%;
+}
+
+input:focus{
+	outline:none;
+}
+input:autofill {
+	background:none !important;
+	background-color:none !important;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+	background:none !important;
+	background-color:none !important;
+}
+.admin_user{
+	width:500px;
+	height:350px;
+	display:block;
+	overflow:hidden;
+	border-radius:5px;
+	position: absolute; 
+	top: 28%;
+	left: 37%;
+}
+
+.admin_user h1{ 
+	height: 60px;
+	font-size:32px;
+	color:#fff;
+	text-align:left;
+	font-weight:300;
+	line-height: 60px;
+	width: 400px;
+	margin: 0px 0px 0px 42px;
+}
+.admin_user h1 img{
+	width: 250px;
+	float: left;
+}
+.admin_user h1 span{
+	font-size: 18px;
+	margin: 0px 0px 0px 0px;
+}
+.admin_user form{
+	  width:100%;
+	  height:auto; 
+	  display:block; 
+	  overflow:hidden; 
+	  padding:20px 10px; 
+	  box-sizing:border-box;
+}
+
+
+.admin_user li{
+	width:70%;
+	float:left;
+	height:40px; 
+	margin:0px 0px 20px 0px;
+	border:1px solid #beaa77; 
+	padding: 0px 20px;
+	border-radius: 12px;
+	box-sizing:border-box;
+	position: relative;
+}
+
+.admin_user li b{
+	width:25px;
+	height: 25px;
+	font-weight: 300;
+	margin: 8px 0px ;
+	float:left;
+}
+.admin_user li b img{
+	width: 25px;
+}
+.admin_user li input{
+	font-size:16px;
+	font-family:'Microsoft Yahei'; 
+	width:200px; 
+	height:40px; 
+	border:none;
+	box-sizing:border-box;
+	line-height:40px;
+	float:left;
+	color: #fff;
+	background: none;
+	padding:0px 10px 0px 10px;
+}
+.user_code{
+	width: 220px !important;
+}
+.user_code_input{
+	width: 120px !important;
+}
+.user_code span{
+	width: 100px;
+	float: right;
+	position: absolute;
+	right: -117px ;
+	height: 40px;
+}
+.user_code span img{
+	height: 40px;
+	width: 100px;
+}
+.admin_user li input:focus{
+	outline: none;
+}
+.user_submit{
+	width:70%;
+	height: 40px;
+	border:1px solid #beaa77;
+	float: left;
+	background:rgba(159,159,159,0.32);
+	border-radius: 12px;
+	color: #fff;
+	font-size: 16px;
+}
